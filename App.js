@@ -1,65 +1,52 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, Image } from 'react-native'
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Example style={{borderRadius: 20}}>
-          <CenteredText>
-            Example 1 : {"\n"}4 Rounded Corners
-          </CenteredText>
-        </Example>
-        <Example style={{borderTopRightRadius: 60, borderBottomRightRadius: 60}}>
-          <CenteredText>
-            Example 2 : {"\n"}D Shape
-          </CenteredText>
-        </Example>
-        <Example style={{borderTopLeftRadius: 30, borderBottomRightRadius: 30}}>
-          <CenteredText>
-            Example 3 : {"\n"}Leaf Shape
-          </CenteredText>
-        </Example>
-        <Example style={{borderRadius: 60}}>
-          <CenteredText>
-            Example 4 : {"\n"}Circle
-          </CenteredText>
-        </Example>
+        <View style={styles.cardContainer}>
+          <View style={styles.cardImageContainer}>
+            <Image style={styles.cardImage} source={require('./user.png')} />
+          </View>
+        </View>
       </View>
     )
   }
 }
 
-const Example = (props) => (
-  <View style={[styles.example, props.style]}>
-    {props.children}
-  </View>
-)
+const profileCardColor = 'dodgerblue'
 
-const CenteredText = (props) => (
-  <Text style={[styles.centerdText, props.style]}>
-    {props.children}
-  </Text>
-)
 const styles = StyleSheet.create({
   container : {
     flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: 75
+    justifyContent: 'center',
+    alignItems: 'center'
 
   },
-  example: {
+  cardContainer: {
+    alignItems: 'center',
+    borderColor: 'black',
+    borderWidth: 3,
+    borderStyle: 'solid',
+    borderRadius: 20,
+    backgroundColor: profileCardColor,
+    width: 300,
+    height: 400
+  },
+  cardImageContainer: {
+    alignItems: 'center',
+    backgroundColor: 'white',
+    borderWidth: 3,
+    borderColor: 'black',
     width: 120,
     height: 120,
-    marginLeft: 20,
-    marginBottom: 20,
-    backgroundColor: 'grey',
-    borderWidth: 2,
-    justifyContent: 'center'
+    borderRadius: 60,
+    marginTop: 30,
+    paddingTop: 15
   },
-  centerdText: {
-    textAlign: 'center',
-    margin: 10
+  cardImage: {
+    width: 80,
+    height: 80
   }
 })
