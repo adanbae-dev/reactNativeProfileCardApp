@@ -9,6 +9,22 @@ export default class App extends Component {
           <View style={styles.cardImageContainer}>
             <Image style={styles.cardImage} source={require('./user.png')} />
           </View>
+          <View>
+            <Text style={styles.cardName}>
+              John Doe
+            </Text>
+          </View>
+          <View style={styles.cardOccupationContainer}>
+            <Text style={styles.cardOccupation}>
+              React Native Developer
+            </Text>
+          </View>
+          <View>
+            <Text style={styles.cardDescription}>
+              John is a really great JavaScript developer, He Loves using JS to build React Native applications for iOS and Android.
+
+            </Text>
+          </View>
         </View>
       </View>
     )
@@ -48,5 +64,27 @@ const styles = StyleSheet.create({
   cardImage: {
     width: 80,
     height: 80
+  },
+  cardName: {
+    color: 'white',
+    marginTop: 30,
+  },
+  cardOccupationContainer: {
+    borderColor: 'black',
+    borderWidth: 3,
+    borderTopWidth: 0,
+    borderRightWidth: 0,
+    borderLeftWidth: 0
+  },
+  cardOccupation: {
+    marginTop: 10,
+    marginBottom: 10
+  },
+  cardDescription : {
+    marginTop: 10,
+    marginRight: 40,
+    marginLeft: 40,
+    marginBottom: 10
   }
+
 })
