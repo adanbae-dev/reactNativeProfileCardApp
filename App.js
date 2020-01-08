@@ -5,45 +5,61 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Example style={{borderWidth: 1}}>
-          <Text>borderWidth: 1</Text>
+        <Example style={{borderRadius: 20}}>
+          <CenteredText>
+            Example 1 : {"\n"}4 Rounded Corners
+          </CenteredText>
         </Example>
-        <Example style={{borderWidth: 3, borderLeftWidth: 0}}>
-          <Text>borderWidth: 3, borderLeftWidth: 0</Text>
+        <Example style={{borderTopRightRadius: 60, borderBottomRightRadius: 60}}>
+          <CenteredText>
+            Example 2 : {"\n"}D Shape
+          </CenteredText>
         </Example>
-        <Example style={{borderWidth: 3, borderLeftColor: 'red'}}>
-          <Text>borderWidth: 3, borderLeftColor: 'red'</Text>
+        <Example style={{borderTopLeftRadius: 30, borderBottomRightRadius: 30}}>
+          <CenteredText>
+            Example 3 : {"\n"}Leaf Shape
+          </CenteredText>
         </Example>
-        <Example style={{borderLeftWidth: 3}}>
-          <Text>borderLeftWidth: 3</Text>
-        </Example>
-        <Example style={{borderWidth: 1, borderStyle: 'dashed'}}>
-          <Text>borderWidth: 1, borderStyle: 'dashed'</Text>
+        <Example style={{borderRadius: 60}}>
+          <CenteredText>
+            Example 4 : {"\n"}Circle
+          </CenteredText>
         </Example>
       </View>
     )
   }
 }
 
-const profileCardColor = 'dodgerblue'
-
 const Example = (props) => (
   <View style={[styles.example, props.style]}>
     {props.children}
   </View>
 )
+
+const CenteredText = (props) => (
+  <Text style={[styles.centerdText, props.style]}>
+    {props.children}
+  </Text>
+)
 const styles = StyleSheet.create({
   container : {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  cardContainer: {
-    backgroundColor: profileCardColor,
-    width: 300,
-    height: 400
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 75
+
   },
   example: {
-    marginBottom: 15
+    width: 120,
+    height: 120,
+    marginLeft: 20,
+    marginBottom: 20,
+    backgroundColor: 'grey',
+    borderWidth: 2,
+    justifyContent: 'center'
+  },
+  centerdText: {
+    textAlign: 'center',
+    margin: 10
   }
 })
